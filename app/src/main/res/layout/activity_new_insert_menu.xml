@@ -13,11 +13,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edit_text"
-        android:hint="Enter Text"
+        android:hint="Food Name"
         android:padding="12dp"
         android:background="@android:drawable/editbox_background"
         />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/price"
+        android:hint="Price"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/description"
+        android:hint="Description"
+        android:padding="12dp"
+        android:lines="3"
+        android:gravity="top"
+        android:background="@android:drawable/editbox_background"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

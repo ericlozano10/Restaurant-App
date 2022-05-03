@@ -14,7 +14,7 @@ import java.util.List;
 
 public class NewInsertMenu extends AppCompatActivity {
     //initialize variables
-    EditText editText;
+    EditText editText, price, description;
     Button btnAdd,btnReset;
     RecyclerView recyclerView;
     List<MainData> dataList = new ArrayList<>();
@@ -30,6 +30,8 @@ public class NewInsertMenu extends AppCompatActivity {
         setContentView(R.layout.activity_new_insert_menu);
         //assign variables
         editText = findViewById(R.id.edit_text);
+        price = findViewById(R.id.price);
+        description = findViewById(R.id.description);
         btnAdd = findViewById(R.id.btn_add);
         btnReset = findViewById(R.id.btn_reset);
         recyclerView = findViewById(R.id.recycler_view);
@@ -52,6 +54,9 @@ public class NewInsertMenu extends AppCompatActivity {
             public void onClick(View v) {
                 //Get string from edit text
                 String sText = editText.getText().toString().trim();
+                String sPrice = price.getText().toString().trim();
+                String sDescription = description.getText().toString().trim();
+
                 //check condition
                 if(!sText.equals(""))
                 {
@@ -59,11 +64,15 @@ public class NewInsertMenu extends AppCompatActivity {
                     //Initialize main data
                     MainData data = new MainData();
                     //set tet on Main data
+                    sText = sText+ " " + sPrice+ " " + sDescription;
                     data.setText(sText);
+
                     //insert text in database
                     database.mainDao().insert(data);
                     //clear edit text
                     editText.setText("");
+                    price.setText("");
+                    description.setText("");
                     //Notify when data inserted
                     dataList.clear();
                     dataList.addAll(database.mainDao().getAll());

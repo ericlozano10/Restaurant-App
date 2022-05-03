@@ -12,7 +12,7 @@
         android:id="@+id/edit_text"
         android:hint="Enter Text"
         android:padding="12dp"
-        android:lines="4"
+        android:lines="1"
         android:gravity="top"
         android:background="@android:drawable/editbox_background"
         />
