@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "767707603204",
+    "project_id": "restaurantapplication-1b282",
+    "storage_bucket": "restaurantapplication-1b282.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767707603204:android:97ba73944845a05e373051",
+        "android_client_info": {
+          "package_name": "com.example.restaurantapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767707603204-jt6fbkjjrnlb9fjt12mc6ltffr09dh6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOcgWvax4LLQPIetOEp9Kt__6tMk4FI1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767707603204-jt6fbkjjrnlb9fjt12mc6ltffr09dh6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767707603204:android:53bddddd63a82e8c373051",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767707603204-jt6fbkjjrnlb9fjt12mc6ltffr09dh6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOcgWvax4LLQPIetOEp9Kt__6tMk4FI1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767707603204-jt6fbkjjrnlb9fjt12mc6ltffr09dh6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767707603204:android:4b5033a63ab1a48f373051",
+        "android_client_info": {
+          "package_name": "com.hfad.restarauntapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767707603204-jt6fbkjjrnlb9fjt12mc6ltffr09dh6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOcgWvax4LLQPIetOEp9Kt__6tMk4FI1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767707603204-jt6fbkjjrnlb9fjt12mc6ltffr09dh6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
