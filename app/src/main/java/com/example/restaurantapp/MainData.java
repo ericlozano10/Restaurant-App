@@ -16,6 +16,7 @@ public class MainData implements Serializable {
     //Create text Column
     @ColumnInfo(name = "text")
     private String text;
+
     //generate getter ands setter
 
     public int getId() {

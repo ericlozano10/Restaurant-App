@@ -1,16 +1,14 @@
 package com.example.restaurantapp;
-
-//import android.arch.persistence.room.Database;
-//import android.arch.persistence.room.Room;
-//import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import androidx.room.Room;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 //Add database entity
-@Database(entities = {MainData.class, CustomerData.class}, version = 2, exportSchema = false)
+@Database(entities = {MainData.class, CustomerData.class,ImageData.class}, version = 3, exportSchema = false)
+@TypeConverters({ImageBitmapString.class})
 public abstract class RoomDB extends RoomDatabase {
     //create database instance
     private static RoomDB database;
@@ -35,7 +33,9 @@ public abstract class RoomDB extends RoomDatabase {
 
     //create Dao
     public abstract MainDao mainDao();
-    //customer dao
+    //create customer dao
     public abstract CustomerDao customerDao();
+    //create image dao
+    public abstract ImageDao imageDao();
 
 }

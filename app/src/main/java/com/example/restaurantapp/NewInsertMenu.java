@@ -1,5 +1,6 @@
 package com.example.restaurantapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import java.util.List;
 public class NewInsertMenu extends AppCompatActivity {
     //initialize variables
     EditText editText, price, description;
-    Button btnAdd,btnReset;
+    Button btnAdd,btnReset, btnImage;
     RecyclerView recyclerView;
     List<MainData> dataList = new ArrayList<>();
     LinearLayoutManager linearLayoutManager;
@@ -34,6 +35,7 @@ public class NewInsertMenu extends AppCompatActivity {
         description = findViewById(R.id.description);
         btnAdd = findViewById(R.id.btn_add);
         btnReset = findViewById(R.id.btn_reset);
+        btnImage = findViewById(R.id.btn_image);
         recyclerView = findViewById(R.id.recycler_view);
 
         //initialize database
@@ -90,6 +92,14 @@ public class NewInsertMenu extends AppCompatActivity {
                 dataList.clear();
                 dataList.addAll(database.mainDao().getAll());
                 adapter.notifyDataSetChanged();
+            }
+        });
+
+        btnImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewInsertMenu.this, UploadImage.class);
+                startActivity(intent);
             }
         });
 
