@@ -19,24 +19,26 @@ import android.widget.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class UploadImage extends AppCompatActivity {
+public class UploadImage extends AppCompatActivity{
 
-    Button button;
+    Button btnGet, btnSave;
     ImageView imageView;
     Bitmap bitmap = null;
-
+    ImageView defaultImage;
     //constant to compare
     //the activity result
     int SELECT_PICTURE = 200;
-
+    ImageBool pic;
     private ArrayList<Object> bitMaps;
     byte [] imageSources;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_image);
         imageView = findViewById(R.id.image);
+
 
     }
 
@@ -48,13 +50,13 @@ public class UploadImage extends AppCompatActivity {
     public void save(View view)
     {
         ImageData image = new ImageData();
-        Log.d("message", "data"+ bitmap);
         image.setImages(ImageBitmapString.getStringFromBitmap(bitmap));
         RoomDB.getInstance(getApplicationContext()).imageDao().insert(image);
     }
     public void get(View view)
     {
-        startActivity(new Intent(UploadImage.this, ImageRecycler.class));
+        pic.setPic(true);
+        startActivity(new Intent(UploadImage.this, NewInsertMenu.class));
     }
 
     private void loadImagesFromGallery()
@@ -75,7 +77,7 @@ public class UploadImage extends AppCompatActivity {
                 Uri selectedImageUri = data.getData();
                 if(null != selectedImageUri)
                 {
-                    imageView.setImageBitmap(bitmap);
+                    imageView.setImageURI(selectedImageUri);
                     try
                     {
                         bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);

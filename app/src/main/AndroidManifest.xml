@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantApp">
         <activity
+            android:name=".ImageAdapter"
+            android:exported="false"/>
+        <activity
             android:name=".ImageRecycler"
             android:exported="false"
             />
@@ -19,6 +22,9 @@
         <activity
             android:name=".CustomerDao"
             android:exported="false" />
+        <activity
+            android:name=".ImageDao"
+            android:exported="false"/>
         <activity
             android:name=".CustomerAdapter"
             android:exported="false" />

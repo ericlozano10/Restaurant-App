@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewInsertMenu extends AppCompatActivity {
+public class NewInsertMenu extends AppCompatActivity{
     //initialize variables
     EditText editText, price, description;
     Button btnAdd,btnReset, btnImage;
@@ -22,8 +23,8 @@ public class NewInsertMenu extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     RoomDB database;
     NewMenuAdapter adapter;
-
-
+    //ImageView imageView;
+    ImageBool pic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class NewInsertMenu extends AppCompatActivity {
         btnReset = findViewById(R.id.btn_reset);
         btnImage = findViewById(R.id.btn_image);
         recyclerView = findViewById(R.id.recycler_view);
+        //imageView = findViewById(R.id.imageView2);
 
         //initialize database
         database = RoomDB.getInstance(this);
@@ -102,6 +104,16 @@ public class NewInsertMenu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+//        if(pic.isPic() == true)
+//        {
+//            imageView.setImageResource(R.drawable.wings);
+//        }
+//        else
+//        {
+//            imageView.setImageResource(R.drawable.ic_launcher_background);
+//        }
+
 
     }
 

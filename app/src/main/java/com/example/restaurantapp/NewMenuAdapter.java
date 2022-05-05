@@ -21,7 +21,7 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
     private List<MainData> dataList;
     private Activity context;
     private RoomDB database;
-
+    ImageBool pic;
     //create constructor
     public NewMenuAdapter(Activity context, List<MainData> dataList)
     {
@@ -112,6 +112,19 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
 
             }
         });
+
+        if(pic.isPic() == true) {
+            MainData d = dataList.get(holder.getAdapterPosition());
+            database.mainDao().insert(d);
+            holder.defaultImage.setImageResource(R.drawable.wings);
+        }
+        else
+        {
+            holder.defaultImage.setImageResource(R.drawable.ic_launcher_background);
+        }
+
+
+
     }
 
     @Override
@@ -123,13 +136,14 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
 
         //initialize variables
         TextView textView;
-        ImageView btnEdit, btnDelete;
+        ImageView btnEdit, btnDelete, defaultImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.text_view);
             btnEdit = itemView.findViewById(R.id.btn_edit);
             btnDelete = itemView.findViewById(R.id.btn_delete);
+            defaultImage = itemView.findViewById(R.id.imageView2);
         }
     }
 }

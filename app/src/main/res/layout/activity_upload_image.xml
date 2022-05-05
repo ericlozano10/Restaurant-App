@@ -12,6 +12,7 @@
         android:layout_width="400dp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/ic_launcher_background"
 
         />
 
@@ -34,14 +35,15 @@
         android:layout_below = "@+id/browse"
 
         />
+
     <Button
         android:id="@+id/fetch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/upload"
+        android:layout_marginTop="0dp"
         android:onClick="get"
-        android:text="get"
-        android:layout_below = "@+id/upload"
 
-        />
+        android:text="get" />
 
 </RelativeLayout>
