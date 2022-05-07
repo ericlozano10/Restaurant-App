@@ -11,8 +11,12 @@ import java.io.Serializable;
 public class ImageData implements Serializable {
     //create id column
     @PrimaryKey (autoGenerate = true)
-    @ColumnInfo(name = "image_id")
+    //@ColumnInfo(name = "image_id")
     private int id;
+
+    //Create text Column
+    @ColumnInfo(name = "text")
+    private String text;
 
    public byte[] getImages()
    {
@@ -35,4 +39,11 @@ public class ImageData implements Serializable {
        this.id = id;
    }
 
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }

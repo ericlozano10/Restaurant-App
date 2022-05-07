@@ -19,4 +19,7 @@ public interface ImageDao {
     @Query("SELECT * FROM Images")
     List<ImageData> getAllImage();
 
+    //Update Query
+    @Query("UPDATE images SET text = :sText WHERE ID = :sID ")
+    void update(int sID, String sText);
 }
