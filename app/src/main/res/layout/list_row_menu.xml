@@ -23,7 +23,7 @@
             android:maxHeight="100dp"
             android:scaleType="fitCenter"
             android:textSize="14sp"
-            android:translationX="150dp"
+            android:translationX="130dp"
             android:translationY="20dp" />
 
         <ImageView
