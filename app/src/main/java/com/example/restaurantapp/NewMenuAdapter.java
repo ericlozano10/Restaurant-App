@@ -47,7 +47,7 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
         //Initialize database
         database = RoomDB.getInstance(context);
         //Set text on text view
-        String foodItem = data.getText()+ data.getPrice()+ data.getDescription();
+        String foodItem = data.getText()+" "+ data.getPrice()+" "+ data.getDescription();
         holder.textView.setText(foodItem);
 
 
