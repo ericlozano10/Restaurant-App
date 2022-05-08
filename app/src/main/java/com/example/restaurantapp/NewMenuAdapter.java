@@ -3,6 +3,7 @@ package com.example.restaurantapp;
 import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHolder> {
@@ -23,6 +25,9 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
     private Activity context;
     private RoomDB database;
     ImageBool pic;
+    EditText editText, priceText, descText;
+
+
     //create constructor
     public NewMenuAdapter(Activity context, List<MainData> dataList)
     {
@@ -77,9 +82,9 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
                 dialog.show();
 
                 //initialize and assign variable
-                EditText editText = dialog.findViewById(R.id.edit_text);
-                EditText priceText = dialog.findViewById(R.id.edit_price);
-                EditText descText = dialog.findViewById(R.id.edit_description);
+                editText = dialog.findViewById(R.id.edit_text);
+                priceText = dialog.findViewById(R.id.edit_price);
+                descText = dialog.findViewById(R.id.edit_description);
                 Button btnUpdate = dialog.findViewById(R.id.btn_update);
 
                 //set text on edit text
@@ -96,6 +101,9 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
                         String uText = editText.getText().toString().trim();
                         String uPrice = priceText.getText().toString().trim();
                         String uDesc = descText.getText().toString().trim();
+
+                        //fill alt data list
+
                         //Update text in database
                         database.mainDao().update(sID,uText,uPrice,uDesc);
                         //Notify when data is updated
@@ -124,10 +132,20 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
             }
         });
 
+        //list array to array
+        MainData mainArr [] = new MainData[dataList.size()];
+        dataList.toArray(mainArr);
+
         if(pic.isPic() == true) {
-            MainData d = dataList.get(holder.getAdapterPosition());
-            database.mainDao().insert(d);
-            holder.defaultImage.setImageResource(R.drawable.wings);
+                if( mainArr[0].getText() == data.getText()) {
+                    holder.defaultImage.setImageResource(R.drawable.wings);
+
+                }
+                else if(mainArr[1].getText() == data.getText())
+                {
+                    holder.defaultImage.setImageResource(R.drawable.elotes);
+                }
+
         }
         else
         {
