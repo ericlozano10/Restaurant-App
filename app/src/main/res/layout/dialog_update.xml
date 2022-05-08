@@ -10,7 +10,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edit_text"
-        android:hint="Edit text"
+        android:hint="Edit Food"
+        android:padding="12dp"
+        android:lines="1"
+        android:gravity="top"
+        android:background="@android:drawable/editbox_background"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_price"
+        android:hint="Edit Price"
+        android:padding="12dp"
+        android:lines="1"
+        android:gravity="top"
+        android:background="@android:drawable/editbox_background"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_description"
+        android:hint="Edit Description"
         android:padding="12dp"
         android:lines="1"
         android:gravity="top"
@@ -18,12 +40,12 @@
         />
 
 
+
     <Button
+        android:id="@+id/btn_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_update"
-        android:text= "Update"
         android:layout_marginTop="8dp"
-        />
+        android:text="Update" />
 
 </LinearLayout>

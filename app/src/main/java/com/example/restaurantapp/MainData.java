@@ -17,6 +17,14 @@ public class MainData implements Serializable {
     @ColumnInfo(name = "text")
     private String text;
 
+    //Create text Column
+    @ColumnInfo(name = "price")
+    private String price;
+
+    //Create text Column
+    @ColumnInfo(name = "description")
+    private String description;
+
     //generate getter ands setter
 
     public int getId() {
@@ -33,5 +41,21 @@ public class MainData implements Serializable {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

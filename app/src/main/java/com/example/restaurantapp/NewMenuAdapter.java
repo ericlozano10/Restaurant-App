@@ -2,6 +2,7 @@ package com.example.restaurantapp;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,9 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
         //Initialize database
         database = RoomDB.getInstance(context);
         //Set text on text view
-        holder.textView.setText(data.getText());
+        String foodItem = data.getText()+ data.getPrice()+ data.getDescription();
+        holder.textView.setText(foodItem);
+
 
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +60,8 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
                 int sID = d.getId();
                 //Get text
                 String sText = d.getText();
+                String sPrice = d.getPrice();
+                String sDesc = d.getDescription();
 
                 //create dialog
                 Dialog dialog = new Dialog(context);
@@ -73,10 +78,14 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
 
                 //initialize and assign variable
                 EditText editText = dialog.findViewById(R.id.edit_text);
+                EditText priceText = dialog.findViewById(R.id.edit_price);
+                EditText descText = dialog.findViewById(R.id.edit_description);
                 Button btnUpdate = dialog.findViewById(R.id.btn_update);
 
                 //set text on edit text
                 editText.setText(sText);
+                priceText.setText(sPrice);
+                descText.setText(sDesc);
 
                 btnUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -85,8 +94,10 @@ public class NewMenuAdapter extends RecyclerView.Adapter<NewMenuAdapter.ViewHold
                         dialog.dismiss();
                         //Get updated text from edit text
                         String uText = editText.getText().toString().trim();
+                        String uPrice = priceText.getText().toString().trim();
+                        String uDesc = descText.getText().toString().trim();
                         //Update text in database
-                        database.mainDao().update(sID,uText);
+                        database.mainDao().update(sID,uText,uPrice,uDesc);
                         //Notify when data is updated
                         dataList.clear();
                         dataList.addAll(database.mainDao().getAll());

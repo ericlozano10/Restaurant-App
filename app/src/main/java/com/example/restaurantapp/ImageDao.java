@@ -22,4 +22,5 @@ public interface ImageDao {
     //Update Query
     @Query("UPDATE images SET text = :sText WHERE ID = :sID ")
     void update(int sID, String sText);
+
 }

@@ -24,8 +24,8 @@ public interface MainDao {
     void reset(List<MainData> mainData);
 
     //Update Query
-    @Query("UPDATE table_name SET text = :sText WHERE ID = :sID ")
-    void update(int sID, String sText);
+    @Query("UPDATE table_name SET text = :sText, price = :sPrice, description = :sDesc WHERE ID = :sID ")
+    void update(int sID, String sText, String sPrice, String sDesc);
 
     //Get All data query
     @Query("SELECT * FROM table_name")

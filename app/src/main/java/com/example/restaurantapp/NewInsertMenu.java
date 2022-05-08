@@ -68,8 +68,10 @@ public class NewInsertMenu extends AppCompatActivity{
                     //Initialize main data
                     MainData data = new MainData();
                     //set tet on Main data
-                    sText = sText+ " " + sPrice+ " " + sDescription;
+                    //sText = sText+ " " + sPrice+ " " + sDescription;
                     data.setText(sText);
+                    data.setPrice(sPrice);
+                    data.setDescription(sDescription);
 
                     //insert text in database
                     database.mainDao().insert(data);
