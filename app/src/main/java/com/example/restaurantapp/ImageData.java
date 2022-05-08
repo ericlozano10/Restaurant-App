@@ -1,17 +1,20 @@
 package com.example.restaurantapp;
 
+import android.database.Cursor;
+
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.PrimaryKey;
 
 import androidx.room.Entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity (tableName = "Images")
 public class ImageData implements Serializable {
     //create id column
     @PrimaryKey (autoGenerate = true)
-    //@ColumnInfo(name = "image_id")
     private int id;
 
     //Create text Column
@@ -27,6 +30,7 @@ public class ImageData implements Serializable {
         this.images = images;
    }
    @ColumnInfo(name = "imageList", typeAffinity = ColumnInfo.BLOB)
+
    private byte [] images;
 
    public int getId()

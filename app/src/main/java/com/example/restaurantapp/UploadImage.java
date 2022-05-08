@@ -6,6 +6,7 @@ import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -14,6 +15,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import java.io.IOException;
@@ -24,6 +26,7 @@ public class UploadImage extends AppCompatActivity{
     Button btnGet, btnSave;
     ImageView imageView;
     Bitmap bitmap = null;
+    Bitmap image_reset = null;
     ImageView defaultImage;
     //constant to compare
     //the activity result
@@ -50,8 +53,13 @@ public class UploadImage extends AppCompatActivity{
     public void save(View view)
     {
         ImageData image = new ImageData();
+        EditText foodName = findViewById(R.id.image_foodName);
+        String sText = foodName.getText().toString().trim();
+        image.setText(sText);
         image.setImages(ImageBitmapString.getStringFromBitmap(bitmap));
         RoomDB.getInstance(getApplicationContext()).imageDao().insert(image);
+        image.setText("");
+        image.setImages(ImageBitmapString.getStringFromBitmap(image_reset));
     }
     public void get(View view)
     {

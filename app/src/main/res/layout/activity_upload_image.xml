@@ -16,11 +16,20 @@
 
         />
 
+    <EditText
+        android:id="@+id/image_foodName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Food Name"
+        android:padding="12dp" />
+
     <Button
         android:id="@+id/browse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image"
+        android:layout_below="@+id/image_foodName"
         android:onClick="upload"
         android:text="Browse Image"
 

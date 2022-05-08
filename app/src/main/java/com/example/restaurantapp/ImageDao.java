@@ -2,6 +2,10 @@ package com.example.restaurantapp;
 
 import static androidx.room.OnConflictStrategy.REPLACE;
 
+import android.database.Cursor;
+import android.media.Image;
+import android.provider.MediaStore;
+
 import androidx.room.Query;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -19,8 +23,8 @@ public interface ImageDao {
     @Query("SELECT * FROM Images")
     List<ImageData> getAllImage();
 
-    //Update Query
-    @Query("UPDATE images SET text = :sText WHERE ID = :sID ")
-    void update(int sID, String sText);
+    //Select
+    @Query("SELECT * FROM Images Where text = :food and ID = :sID")
+    List<ImageData> getImageName(String food, int sID);
 
 }
